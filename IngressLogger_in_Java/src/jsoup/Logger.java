@@ -17,7 +17,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class sourceGetTest {
+public class Logger {
 	public static void main(String[] args) throws IOException {
 		/*
 			// 指定のウィンドウサイズに変更
@@ -48,11 +48,11 @@ public class sourceGetTest {
 
 		while(true){
 				/* Ingress画面操作 */
-				new Main().sleep(1000*5);//5sec wait
+				new Logger().sleep(1000*5);//5sec wait
 				//allクリック
 				driver.findElement(By.id("pl_tab_all")).click();
 
-				new Main().sleep(1000*10);//10sec wait
+				new Logger().sleep(1000*10);//10sec wait
 
 				String allTabSource = driver.getPageSource();
 				String convertSource = findElementsHtml(allTabSource,"UTF-8","plexts","id");
@@ -117,9 +117,9 @@ public class sourceGetTest {
 				oall.close();
 				fall.close();
 				//
-				new Main().sleep(1000* 60);//60sec wait
+				new Logger().sleep(1000* 60);//60sec wait
 				driver.get(url);//更新処理
-				new Main().sleep(1000* 15);//15sec wait
+				new Logger().sleep(1000* 15);//15sec wait
 		}
 //		driver.quit();
 	}
@@ -131,7 +131,7 @@ public class sourceGetTest {
 		return strAry;
     }
     private static String nameShaper(String t){
-    	t = t.replaceAll("pl_content pl_broad","pl_content_pl_broad");
+    	t = t.replaceAll("pl_content pl_broad","pl_contsent_pl_broad");
     	t = t.replaceAll("RESISTANCE pl_nudge_player","RESISTANCE_pl_nudge_player");
     	t = t.replaceAll("ENLIGHTENED pl_nudge_player","ENLIGHTENED_pl_nudge_player");
 		return t;
